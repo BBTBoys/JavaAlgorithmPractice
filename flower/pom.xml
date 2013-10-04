@@ -1,0 +1,343 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.adman</groupId>
+  <artifactId>flower</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>flower Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<env>dev</env>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<env>prod</env>
+			</properties>
+		</profile>
+	</profiles>
+  <properties>
+  		<!-- provided -->
+		<java.version>1.6</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	
+		<!-- test -->
+		<junit.version>4.8.2</junit.version>
+		
+		<!-- provided -->
+		<servlet-api.version>2.5</servlet-api.version>	
+		
+		<guava.version>14.0-rc1</guava.version>
+		
+		<!-- logging -->
+		<log4j.version>1.2.16</log4j.version>
+		<slf4j.version>1.6.1</slf4j.version>
+		
+		<!-- Spring -->
+		<spring.version>3.2.0.RELEASE</spring.version>
+		<aspectj.version>1.7.1</aspectj.version>
+		
+		
+		<!-- Velocity -->
+		<velocity.version>1.7</velocity.version>
+		<velocity-tools.version>2.0</velocity-tools.version>
+		
+		<!-- Apache Commons -->
+		<commons-dbcp.version>1.4</commons-dbcp.version>
+		<commons-pool.version>1.6</commons-pool.version>
+		<commons-lang3.version>3.1</commons-lang3.version>
+		<commons-collections.version>3.2.1</commons-collections.version>
+		<commons-io.version>2.4</commons-io.version>
+		<commons-httpclient.version>3.1</commons-httpclient.version>
+		
+		<!-- Database -->
+		<mysql-connector-java.version>5.1.17</mysql-connector-java.version>
+		
+		<!-- myBatis -->
+		<mybatis.version>3.1.1</mybatis.version>
+		<mybatis-spring.version>1.1.1</mybatis-spring.version>
+  </properties>
+  <dependencies>
+		<!-- provided -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet-api.version}</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- MyBatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis-spring.version}</version>
+		</dependency>
+
+		<!-- Database -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.19</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- Velocity -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>${velocity.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-tools</artifactId>
+			<version>${velocity-tools.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>velocity</groupId>
+					<artifactId>velocity</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>velocity-tools</groupId>
+					<artifactId>velocity-tools-generic</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>velocity-tools</groupId>
+					<artifactId>velocity-tools-view</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- Apache Commons -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>${commons-pool.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>${commons-collections.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>${commons-httpclient.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+		
+		<!-- test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!--  Spring -->
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+  </dependencies>
+ <build>
+  <finalName>flower</finalName>
+  <filters>
+  	<filter>src/main/resources/filters/${env}.properties</filter>
+  </filters>
+   <resources>
+		<resource>
+			<directory>src/main/resources</directory>
+			<filtering>true</filtering>
+			<includes>
+				<include>**/*.xml</include>
+				<include>**/*.properties</include>
+			</includes>
+		</resource>
+		<resource>
+			<directory>src/main/java</directory>
+			<filtering>true</filtering>
+			<includes>
+				<include>**/*.java</include>
+				<include>**/*.xml</include>
+				<include>**/*.properties</include>
+				<include>**/*.html</include>
+				<include>**/*.css</include>
+				<include>**/*.js</include>
+			</includes>
+		</resource>
+	</resources>
+  <plugins>
+  <plugin>
+		<artifactId>maven-eclipse-plugin</artifactId>
+		<version>2.6</version>
+		<configuration>
+			<downloadSources>true</downloadSources>
+			<downloadJavadocs>true</downloadJavadocs>
+		</configuration>
+	</plugin>
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-source-plugin</artifactId>
+		<version>2.1.2</version>
+		<executions>
+			<execution>
+				<id>attach-sources</id>
+				<goals>
+					<goal>jar</goal>
+				</goals>
+			</execution>
+		</executions>
+	</plugin>
+	<plugin>
+		<artifactId>maven-idea-plugin</artifactId>
+		<version>2.1</version>
+		<configuration>
+		    <downloadSources>true</downloadSources>
+		    <downloadJavadocs>true</downloadJavadocs>
+		    <dependenciesAsLibraries>true</dependenciesAsLibraries>
+		    <useFullNames>false</useFullNames>
+		</configuration>
+    </plugin>
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<version>2.3.2</version>
+		<configuration>
+			<source>${java.version}</source>
+			<target>${java.version}</target>
+			<encoding>${project.build.sourceEncoding}</encoding>
+		</configuration>
+	</plugin>
+  </plugins>
+  </build>
+</project>

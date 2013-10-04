@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Duration">
+
+	<resultMap type="duration" id="durationMap">
+		<id property="id" column="id" javaType="integer" jdbcType="INTEGER" />
+		<result property="startDate" column="start_day" javaType="string" jdbcType="VARCHAR" />
+		<result property="endDate" column="end_day" javaType="string" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="selectByStartAndEndDate" parameterType="map" resultMap="durationMap">
+	SELECT *
+	  FROM duration
+	WHERE start_day = #{startDate}
+	  AND end_day = #{endDate}
+	</select>
+</mapper>

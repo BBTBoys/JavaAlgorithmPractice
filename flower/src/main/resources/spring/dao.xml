@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+  		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd"
+	default-autowire="byName">
+	
+	<context:annotation-config />
+	<context:component-scan base-package="net.adman.flower.dao" />
+	<context:component-scan base-package="net.adman.flower.dao.mybatis" />
+	
+	<tx:annotation-driven transaction-manager="TransactionManager" />
+	<bean id="TransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource" />
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/flower" />
+		<property name="username" value="root" />
+		<property name="password" value="daumcorp" />
+		<property name="maxActive" value="16" />
+		<property name="maxWait" value="10000" />
+		<property name="validationQuery" value="/* ping */ SELECT 1=======" />
+		<property name="defaultAutoCommit" value="true" />
+		<property name="testOnBorrow" value="true" />
+		<property name="testWhileIdle" value="true" />
+		<property name="timeBetweenEvictionRunsMillis" value="10000" />
+		<property name="minEvictableIdleTimeMillis" value="60000" />
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="typeAliasesPackage" value="net.adman.flower.model"/>
+		<property name="dataSource" ref="dataSource" />
+ 		<property name="mapperLocations" value="classpath*:net/adman/flower/dao/mybatis/mapper/*.xml"/>
+ 	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+	    <property name="basePackage"  value="net.adman.flower.dao.mybatis" />
+	    <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+</beans>

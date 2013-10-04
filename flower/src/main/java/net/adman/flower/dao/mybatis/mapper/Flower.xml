@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Flower">
+	<resultMap type="flower" id="flowerMap">
+		<id property="id" column="id" javaType="integer" jdbcType="INTEGER" />
+		<result property="durationId" column="duration_id" javaType="integer" jdbcType="INTEGER" />
+		<result property="bloomingDay"  column="blooming_day" javaType="string" jdbcType="VARCHAR" />
+		<result property="fallingDay"  column="falling_day" javaType="string" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="selectListByDurationId" parameterType="integer" resultMap="flowerMap">
+	SELECT *
+	  FROM flower
+	WHERE duration_id = #{durationId}
+	</select>
+</mapper>

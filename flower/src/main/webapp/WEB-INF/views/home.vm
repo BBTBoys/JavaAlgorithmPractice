@@ -1,0 +1,23 @@
+<div>
+	<p>
+		제목 : 공주님의 정원 가꾸기 <br /><br />
+		내용 설명<br />
+		기존에 가지고 있는 꽃 목록에서 해당 기간 동안 최소 한 종류의 꽃이 피어 있도록 하는 최저 꽃 갯수와 기간을 구한다.
+	</p>
+</div>
+<div>
+	기간 : 2013.03.01 ~ 2013.11.30 <br /><br /><br />
+</div>
+<div>기존 꽃 목록 </div>
+#if($rawResultList)
+	#foreach($rawdata in $rawResultList)
+		$rawdata.bloomingDay // $rawdata.fallingDay <br />
+	#end
+#end
+
+<div>최적화 된 결과 </div>
+#if($resultList)
+	#foreach($result in $resultList)
+		$result.bloomingDay // $result.fallingDay <br />
+	#end
+#end
