@@ -15,7 +15,7 @@
 	#end
 #end
 
-<div>최적화 된 결과 </div>
+<div>최적화 된 결과 확</div>
 #if($resultList)
 	#foreach($result in $resultList)
 		$result.bloomingDay // $result.fallingDay <br />
