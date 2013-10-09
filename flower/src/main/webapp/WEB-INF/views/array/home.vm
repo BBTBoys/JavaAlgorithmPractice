@@ -1,0 +1,17 @@
+<div>
+	<h4>지그재그로 움직이는 배열 알고리듬 연습 </h4>
+	<p>1~100 사이의 숫자를 requestParam size=n 의 형태로 값을 받는다.<br>
+		받아온 값의 크기로 된 matrix를 구현 
+	</p>
+</div>
+
+<div>
+	결과는 아래와 같음. 
+</div>
+#set($max = $size - 1)
+#foreach($i in [0..$max])
+	#foreach($j in [0..$max])
+		$dataList.get($i).get($j)
+	#end
+	<br />
+#end
