@@ -1,0 +1,29 @@
+<h4>quick sort 연습 페이지.</h4>
+<div>
+	<p>1~9까지의 숫자를 무작위로 선택하여 정렬된 값을 만든다.</p>
+<div>
+	<h5>값 선택.</h5>
+	<div>
+		1 : <input type="checkbox" value="1" onclick="JavaProgramming.SortAlgorithm.selectValueForSimpleSort(this);"><br>
+		2 : <input type="checkbox" value="2" onclick="JavaProgramming.SortAlgorithm.selectValueForSimpleSort(this);"><br>
+		3 : <input type="checkbox" value="3" onclick="JavaProgramming.SortAlgorithm.selectValueForSimpleSort(this);"><br>
+		4 : <input type="checkbox" value="4" onclick="JavaProgramming.SortAlgorithm.selectValueForSimpleSort(this);"><br>
+		5 : <input type="checkbox" value="5" onclick="JavaProgramming.SortAlgorithm.selectValueForSimpleSort(this);"><br>
+		6 : <input type="checkbox" value="6" onclick="JavaProgramming.SortAlgorithm.selectValueForSimpleSort(this);"><br>
+		7 : <input type="checkbox" value="7" onclick="JavaProgramming.SortAlgorithm.selectValueForSimpleSort(this);"><br>
+		8 : <input type="checkbox" value="8" onclick="JavaProgramming.SortAlgorithm.selectValueForSimpleSort(this);"><br>
+		9 : <input type="checkbox" value="9" onclick="JavaProgramming.SortAlgorithm.selectValueForSimpleSort(this);"><br>
+	</div>
+</div>
+<div>
+	<p>선택한 값.</p>
+	<form id="formContainer" name="simpleSortForm" action="/sort_algorithm/simple_sort" method="GET">
+		<fieldset>
+			<legend class="txt_hide">simple sort</legend>
+			<button class="btn_search" id="daumBtnSearch" type="submit">
+				<span class="txt_search">calculate</span>
+			</button> 		
+		</fieldset>
+	</form>
+</div>
+</div>
