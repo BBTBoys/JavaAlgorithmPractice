@@ -1,0 +1,16 @@
+<h4>알고리듬 연습을 위한 웹 페이지 제작 중.</h4>
+<p>이 페이지의 목적은 java 언어를 기반으로 하여 algorithm 연습을 통해<br>
+	개발 능력 향상에 있다.
+</p>
+<h4>목록.</h4>
+<ol>
+	<li>
+		<a href="/flower" title="best fit algorithm">best fit Array Algorithm</a>
+	</li>
+	<li>
+		<a href="/array_algorithm?size=5" title="array algorithm">Array Algorithm</a>
+	</li>
+	<li>
+		<a href="/sort_algorithm" title="Sort Algorithm">Sort Algorithm</a>
+	</li>
+</ol>
