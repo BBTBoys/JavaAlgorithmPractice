@@ -17,8 +17,15 @@
 </div>
 <div>
 	<p>선택한 값.</p>
-	<form id="formContainer" name="simpleSortForm" action="/sort_algorithm/simple_sort" method="GET">
+	<form id="formContainer" name="simpleSortForm" action="/sort_algorithm/quick_sort" method="GET">
 		<fieldset>
+			<h5>type 선택.</h5>
+			<div>
+				<select name="sortType">
+					<option value="simple">simpleType</option>
+					<option value="placeIn">placeInType</option>
+				</select>
+			</div>
 			<legend class="txt_hide">simple sort</legend>
 			<button class="btn_search" id="daumBtnSearch" type="submit">
 				<span class="txt_search">calculate</span>
