@@ -2,6 +2,7 @@ package net.adman.flower.web.controller;
 
 import java.util.List;
 
+import net.adman.flower.model.MergeSort;
 import net.adman.flower.service.SortService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,25 @@ public class SortAlgorithmController {
 		}
 		
 		return "sort/result";
+	}
+	
+	@RequestMapping(value="merge_sort", method=RequestMethod.GET)
+	public String mergeSort(Model model) {
+		List<Integer> inputList =Lists.newArrayList();
+		inputList.add(3);
+		inputList.add(7);
+		inputList.add(4);
+		inputList.add(9);
+		inputList.add(5);
+		inputList.add(2);
+		inputList.add(6);
+		inputList.add(1);
+		
+		MergeSort mergeSort = new MergeSort(inputList.size()-1, inputList);
+		
+		model.addAttribute("rawDataList", mergeSort.getInputList());
+		model.addAttribute("resultList", sortService.getMergeSorting(mergeSort));
+		
+		return "sort/merge_sort";
 	}
 }
