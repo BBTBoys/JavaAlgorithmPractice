@@ -11,6 +11,9 @@
 		<a href="/array_algorithm?size=5" title="array algorithm">Array Algorithm</a>
 	</li>
 	<li>
-		<a href="/sort_algorithm" title="Sort Algorithm">Sort Algorithm</a>
+		<a href="/sort_algorithm" title="Quick Sort Algorithm">Quick Sort Algorithm</a>
+	</li>
+	<li>
+		<a href="/sort_algorithm/merge_sort" title="Merge Sort Algorithm">Merge Sort Algorithm</a>
 	</li>
 </ol>
