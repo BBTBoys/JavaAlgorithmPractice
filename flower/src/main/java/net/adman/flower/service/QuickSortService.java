@@ -5,7 +5,7 @@ import java.util.List;
 import net.adman.flower.model.MergeSort;
 
 
-public interface SortService {
+public interface QuickSortService {
 
 	List<Integer> getSimpleSorting(List<Integer> dataList);
 	

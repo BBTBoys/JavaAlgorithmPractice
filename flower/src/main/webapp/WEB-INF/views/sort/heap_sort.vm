@@ -1,0 +1,11 @@
+#if($resultList && $resultList.size() > 0)
+	<h4>$!{type} 결과 화면.</h4>
+	<h5>주어진 값.</h5>
+	#foreach($rawData in $rawDataList)
+		$rawData<br>
+	#end
+	<h5>정렬된 값.</h5>
+	#foreach($value in $resultList)
+		$value<br>
+	#end
+#end

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.google.common.collect.Lists;
 
 @Service
-public class SortServiceImpl implements SortService {
+public class QuickSortServiceImpl implements QuickSortService {
 
 	@Override
 	public List<Integer> getSimpleSorting(List<Integer> dataList) {

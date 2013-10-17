@@ -3,7 +3,8 @@ package net.adman.flower.web.controller;
 import java.util.List;
 
 import net.adman.flower.model.MergeSort;
-import net.adman.flower.service.SortService;
+import net.adman.flower.service.HeapSortService;
+import net.adman.flower.service.QuickSortService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +19,8 @@ import com.google.common.collect.Lists;
 @RequestMapping("sort_algorithm")
 public class SortAlgorithmController {
 	
-	@Autowired private SortService sortService;
+	@Autowired private QuickSortService sortService;
+	@Autowired private HeapSortService heapSortService;
 
 	@RequestMapping("")
 	public String home() {
@@ -63,5 +65,17 @@ public class SortAlgorithmController {
 		model.addAttribute("resultList", sortService.getMergeSorting(mergeSort));
 		
 		return "sort/merge_sort";
+	}
+	
+	@RequestMapping(value="heap_sort", method=RequestMethod.GET)
+	public String heapSort(Model model) {
+		int[] inputArray = {6,5,3,1,8,7,2,4};
+		int[] rawDataList = {6,5,3,1,8,7,2,4};
+		int[] resultArray = heapSortService.excuteHeapSort(inputArray);
+		
+		model.addAttribute("rawDataList", rawDataList);
+		model.addAttribute("resultList", resultArray);
+		
+		return "sort/heap_sort";
 	}
 }
